@@ -1,6 +1,6 @@
 output "s3_bucket_name" {
   description = "Name of created S3 Bucket"
-  value       = "${lower(var.name)}-${lower(var.environment)}-terraform-state"
+  value       = "${module.this.s3_bucket_id}"
 }
 
 output "dynamodb_table_name" {

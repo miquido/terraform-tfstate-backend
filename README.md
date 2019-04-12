@@ -19,7 +19,7 @@ Terraform Module
     terraform {}
 
     module "tfstate-backend" {
-        source      = "git::ssh://git@bitbucket.org/miquido/terraform-tfstate-backend.git?ref=1.0.1"
+        source      = "git::ssh://git@bitbucket.org/miquido/terraform-tfstate-backend.git?ref=1.0.2"
         name        = "miquido"
         environment = "devops"
         region      = "eu-west-2"
