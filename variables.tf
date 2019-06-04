@@ -1,20 +1,30 @@
 variable "environment" {
   default     = ""
-  description = "(Optional) Environment name"
+  description = "Environment name"
 }
 
 variable "name" {
   type        = "string"
-  description = "(Required) Account/Project Name"
+  description = "Account/Project Name"
 }
 
 variable "tags" {
   type        = "map"
   default     = {}
-  description = "(Optional) Tags to apply on repository"
+  description = "Tags to apply on repository"
 }
 
 variable "region" {
   type        = "string"
-  description = "(Required) AWS Region to create resources on"
+  description = "AWS Region to create resources on"
+}
+
+variable "read_capacity" {
+  default     = 1
+  description = "DynamoDB read capacity units"
+}
+
+variable "write_capacity" {
+  default     = 1
+  description = "DynamoDB write capacity units"
 }

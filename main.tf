@@ -10,4 +10,6 @@ module "this" {
   block_public_policy     = "true"
   restrict_public_buckets = "true"
   ignore_public_acls      = "true"
+  read_capacity           = "${var.read_capacity}"
+  write_capacity          = "${var.write_capacity}"
 }

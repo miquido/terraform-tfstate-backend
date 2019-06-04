@@ -7,10 +7,9 @@ Terraform module to provision S3 Bucket for Terraform State Backend and DynamoDB
 ### Open source modules used:
 * https://github.com/cloudposse/terraform-aws-tfstate-backend
 ---
-
-
 Terraform Module
 
+BitBucket Repository: https://bitbucket.org/miquido/terraform-tfstate-backend
 ## Usage
 
 1. Use module to create bucket
@@ -78,10 +77,12 @@ Available targets:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| environment | (Optional) Environment name | string | `` | no |
-| name | (Required) Account/Project Name | string | - | yes |
-| region | (Required) AWS Region to create resources on | string | - | yes |
-| tags | (Optional) Tags to apply on repository | map | `<map>` | no |
+| environment | Environment name | string | `` | no |
+| name | Account/Project Name | string | - | yes |
+| read_capacity | DynamoDB read capacity units | string | `1` | no |
+| region | AWS Region to create resources on | string | - | yes |
+| tags | Tags to apply on repository | map | `<map>` | no |
+| write_capacity | DynamoDB write capacity units | string | `1` | no |
 
 ## Outputs
 
@@ -128,3 +129,4 @@ Copyright © 2017-2019 [Miquido](https://miquido.com)
   [logo]: https://www.miquido.com/img/logos/logo__miquido.svg
   [website]: https://www.miquido.com/
   [github]: https://github.com/miquido
+  [bitbucket]: https://bitbucket.org/miquido

@@ -2,10 +2,12 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| environment | (Optional) Environment name | string | `` | no |
-| name | (Required) Account/Project Name | string | - | yes |
-| region | (Required) AWS Region to create resources on | string | - | yes |
-| tags | (Optional) Tags to apply on repository | map | `<map>` | no |
+| environment | Environment name | string | `` | no |
+| name | Account/Project Name | string | - | yes |
+| read_capacity | DynamoDB read capacity units | string | `1` | no |
+| region | AWS Region to create resources on | string | - | yes |
+| tags | Tags to apply on repository | map | `<map>` | no |
+| write_capacity | DynamoDB write capacity units | string | `1` | no |
 
 ## Outputs
 
