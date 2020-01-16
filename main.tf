@@ -1,5 +1,5 @@
 module "this" {
-  source                        = "git@github.com:cloudposse/terraform-aws-tfstate-backend?ref=0.9.0"
+  source                        = "git@github.com:cloudposse/terraform-aws-tfstate-backend?ref=tags/0.9.0"
   namespace                     = var.name
   stage                         = var.environment
   name                          = "terraform"
