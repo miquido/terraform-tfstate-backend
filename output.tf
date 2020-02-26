@@ -1,15 +1,34 @@
-output "s3_bucket_name" {
-  description = "Name of created S3 Bucket"
+output "s3_bucket_domain_name" {
+  value       = module.this.s3_bucket_domain_name
+  description = "S3 bucket domain name"
+}
+
+output "s3_bucket_id" {
   value       = module.this.s3_bucket_id
+  description = "S3 bucket ID"
+}
+
+output "s3_bucket_arn" {
+  value       = module.this.s3_bucket_arn
+  description = "S3 bucket ARN"
 }
 
 output "dynamodb_table_name" {
-  description = "Name of created DynamoDB Table"
+  description = "The name of created DynamoDB Table"
   value       = module.this.dynamodb_table_name
 }
 
-output "tf_backend_config" {
-  description = "Rendered backend config file"
-  value       = module.this.terraform_backend_config
+output "dynamodb_table_id" {
+  description = "The ID of created DynamoDB Table"
+  value       = module.this.dynamodb_table_id
 }
 
+output "dynamodb_table_arn" {
+  description = "The ARN of created DynamoDB Table"
+  value       = module.this.dynamodb_table_arn
+}
+
+output "tf_backend_config" {
+  description = "Rendered Terraform backend config file"
+  value       = data.template_file.terraform_backend_config.rendered
+}
