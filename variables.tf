@@ -52,3 +52,8 @@ variable "terraform_backend_config_file_path" {
   default     = ""
   description = "The path to terrafrom project directory. Won't create local file if variable value is empty. Recommended: `path.module`"
 }
+
+variable "billing_mode" {
+  default     = "PAY_PER_REQUEST"
+  description = "DynamoDB billing mode"
+}

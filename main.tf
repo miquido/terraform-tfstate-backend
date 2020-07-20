@@ -13,7 +13,7 @@ locals {
 data "aws_caller_identity" "current" {}
 
 module "this" {
-  source                        = "git@github.com:cloudposse/terraform-aws-tfstate-backend?ref=tags/0.13.0"
+  source                        = "git@github.com:cloudposse/terraform-aws-tfstate-backend?ref=tags/0.18.2"
   namespace                     = var.name
   stage                         = var.environment
   name                          = "terraform"
@@ -26,6 +26,7 @@ module "this" {
   ignore_public_acls            = true
   read_capacity                 = var.read_capacity
   write_capacity                = var.write_capacity
+  billing_mode                  = var.billing_mode
   enable_server_side_encryption = true
   profile                       = ""
   role_arn                      = local.role_arn
