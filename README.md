@@ -7,9 +7,7 @@ Terraform module to provision S3 Bucket for Terraform State Backend and DynamoDB
 ### Open source modules used:
 * https://github.com/cloudposse/terraform-aws-tfstate-backend
 ---
-Terraform Module
-
-BitBucket Repository: https://bitbucket.org/miquido/terraform-tfstate-backend
+**Terraform Module**
 ## Usage
 
 1. Use module to create bucket
@@ -21,7 +19,6 @@ BitBucket Repository: https://bitbucket.org/miquido/terraform-tfstate-backend
         source      = "git::ssh://git@bitbucket.org/miquido/terraform-tfstate-backend.git?ref=1.0.2"
         name        = "miquido"
         environment = "devops"
-        region      = "eu-west-2"
     }
 
     output "config" {
@@ -63,8 +60,9 @@ BitBucket Repository: https://bitbucket.org/miquido/terraform-tfstate-backend
     ```
 
 5. When asked to copy local tfstate to s3 bucket, answer yes.
+<!-- markdownlint-disable -->
 ## Makefile Targets
-```
+```text
 Available targets:
 
   help                                Help screen
@@ -73,40 +71,60 @@ Available targets:
   lint                                Lint Terraform code
 
 ```
+<!-- markdownlint-restore -->
+<!-- markdownlint-disable -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 0.13 |
+| aws | >= 2.29.0 |
+| local | >= 1.3 |
+| template | >= 2.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| aws | >= 2.29.0 |
+| local | >= 1.3 |
+| template | >= 2.0 |
+
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|:----:|:-----:|:-----:|
-| environment | Environment name | string | `` | no |
-| name | Account/Project Name | string | - | yes |
-| read_capacity | DynamoDB read capacity units | string | `1` | no |
-| region | AWS Region the S3 bucket should reside in | string | - | yes |
-| role_account_id | The AWS Account ID of IAM Role to be assumed. If none provided current caller account id will be used. | string | `` | no |
-| role_name | The IAM Role name to be assumed | string | `AdministratorAccess` | no |
-| tags | Tags to apply on repository | map(string) | `<map>` | no |
-| terraform_backend_config_file_name | Name of terraform backend config file | string | `tfstate-backend.tf` | no |
-| terraform_backend_config_file_path | The path to terrafrom project directory. Won't create local file if variable value is empty. Recommended: `path.module` | string | `` | no |
-| write_capacity | DynamoDB write capacity units | string | `1` | no |
+|------|-------------|------|---------|:--------:|
+| billing\_mode | DynamoDB billing mode | `string` | `"PAY_PER_REQUEST"` | no |
+| environment | Environment name | `string` | `""` | no |
+| name | Account/Project Name | `string` | n/a | yes |
+| read\_capacity | DynamoDB read capacity units | `number` | `1` | no |
+| role\_account\_id | The AWS Account ID of IAM Role to be assumed. If none provided current caller account id will be used. | `string` | `""` | no |
+| role\_name | The IAM Role name to be assumed | `string` | `"AdministratorAccess"` | no |
+| tags | Tags to apply on repository | `map(string)` | `{}` | no |
+| terraform\_backend\_config\_file\_name | Name of terraform backend config file | `string` | `"tfstate-backend.tf"` | no |
+| terraform\_backend\_config\_file\_path | The path to terrafrom project directory. Won't create local file if variable value is empty. Recommended: `path.module` | `string` | `""` | no |
+| write\_capacity | DynamoDB write capacity units | `number` | `1` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| dynamodb_table_arn | The ARN of created DynamoDB Table |
-| dynamodb_table_id | The ID of created DynamoDB Table |
-| dynamodb_table_name | The name of created DynamoDB Table |
-| s3_bucket_arn | S3 bucket ARN |
-| s3_bucket_domain_name | S3 bucket domain name |
-| s3_bucket_id | S3 bucket ID |
-| tf_backend_config | Rendered Terraform backend config file |
+| dynamodb\_table\_arn | The ARN of created DynamoDB Table |
+| dynamodb\_table\_id | The ID of created DynamoDB Table |
+| dynamodb\_table\_name | The name of created DynamoDB Table |
+| s3\_bucket\_arn | S3 bucket ARN |
+| s3\_bucket\_domain\_name | S3 bucket domain name |
+| s3\_bucket\_id | S3 bucket ID |
+| tf\_backend\_config | Rendered Terraform backend config file |
 
+<!-- markdownlint-restore -->
 
 
 ## Developing
 
 1. Make changes in terraform files
 
-2. Regerate documentation
+2. Regenerate documentation
 
     ```bash
     bash <(curl -s https://terraform.s3.k.miquido.net/update.sh)
@@ -136,5 +154,7 @@ Copyright © 2017-2020 [Miquido](https://miquido.com)
 
   [logo]: https://www.miquido.com/img/logos/logo__miquido.svg
   [website]: https://www.miquido.com/
+  [gitlab]: https://gitlab.com/miquido
   [github]: https://github.com/miquido
   [bitbucket]: https://bitbucket.org/miquido
+

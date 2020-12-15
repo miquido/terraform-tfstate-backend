@@ -17,7 +17,6 @@ usage: |-
           source      = "git::ssh://git@bitbucket.org/miquido/terraform-tfstate-backend.git?ref=1.0.2"
           name        = "miquido"
           environment = "devops"
-          region      = "eu-west-2"
       }
 
       output "config" {

@@ -1,7 +1,7 @@
 locals {
   role_account_id      = var.role_account_id == "" ? data.aws_caller_identity.current.account_id : var.role_account_id
   role_arn             = "arn:aws:iam::${local.role_account_id}:role/${var.role_name}"
-  terraform_version    = "0.12.21"
+  terraform_version    = "0.13.5"
   terraform_state_file = "terraform.tfstate"
   terraform_backend_config_file = format(
     "%s/%s",
@@ -11,14 +11,14 @@ locals {
 }
 
 data "aws_caller_identity" "current" {}
+data "aws_region" "current" {}
 
 module "this" {
-  source                        = "git@github.com:cloudposse/terraform-aws-tfstate-backend?ref=tags/0.18.2"
+  source                        = "git@github.com:cloudposse/terraform-aws-tfstate-backend?ref=tags/0.29.0"
   namespace                     = var.name
   stage                         = var.environment
   name                          = "terraform"
   attributes                    = ["state"]
-  region                        = var.region
   tags                          = var.tags
   block_public_acls             = true
   block_public_policy           = true
@@ -38,7 +38,7 @@ data "template_file" "terraform_backend_config" {
   template = file("${path.module}/templates/terraform.tf.tpl")
 
   vars = {
-    region               = var.region
+    region               = data.aws_region.current.name
     encrypt              = true
     bucket               = module.this.s3_bucket_id
     dynamodb_table       = module.this.dynamodb_table_name

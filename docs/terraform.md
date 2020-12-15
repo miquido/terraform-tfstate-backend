@@ -1,16 +1,20 @@
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12 |
+| terraform | >= 0.13 |
+| aws | >= 2.29.0 |
+| local | >= 1.3 |
+| template | >= 2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | n/a |
-| local | n/a |
-| template | n/a |
+| aws | >= 2.29.0 |
+| local | >= 1.3 |
+| template | >= 2.0 |
 
 ## Inputs
 
@@ -20,7 +24,6 @@
 | environment | Environment name | `string` | `""` | no |
 | name | Account/Project Name | `string` | n/a | yes |
 | read\_capacity | DynamoDB read capacity units | `number` | `1` | no |
-| region | AWS Region the S3 bucket should reside in | `string` | n/a | yes |
 | role\_account\_id | The AWS Account ID of IAM Role to be assumed. If none provided current caller account id will be used. | `string` | `""` | no |
 | role\_name | The IAM Role name to be assumed | `string` | `"AdministratorAccess"` | no |
 | tags | Tags to apply on repository | `map(string)` | `{}` | no |
@@ -40,3 +43,4 @@
 | s3\_bucket\_id | S3 bucket ID |
 | tf\_backend\_config | Rendered Terraform backend config file |
 
+<!-- markdownlint-restore -->

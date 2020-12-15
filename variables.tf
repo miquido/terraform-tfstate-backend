@@ -14,11 +14,6 @@ variable "tags" {
   description = "Tags to apply on repository"
 }
 
-variable "region" {
-  type        = string
-  description = "AWS Region the S3 bucket should reside in"
-}
-
 variable "role_account_id" {
   type        = string
   default     = ""
