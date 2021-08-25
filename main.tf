@@ -34,6 +34,7 @@ module "this" {
   role_arn                      = local.role_arn
   terraform_version             = local.terraform_version
   terraform_state_file          = local.terraform_state_file
+  s3_bucket_name                = var.s3_bucket_name
 }
 
 data "template_file" "terraform_backend_config" {
