@@ -79,6 +79,7 @@ variable "container_memory" {
 
 variable "container_cmd" {
   type        = list(string)
+  default     = null
   description = "Command that will be run on the task"
 }
 

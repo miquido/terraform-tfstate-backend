@@ -1,5 +1,5 @@
 module "label" {
-  source    = "git::https://github.com/cloudposse/terraform-terraform-label?ref=tags/0.5.1"
+  source    = "git::https://github.com/cloudposse/terraform-terraform-label?ref=tags/0.8.0"
   name      = var.name
   namespace = var.project
   stage     = var.environment
@@ -12,7 +12,7 @@ locals {
 
 locals {
   use_default_log_config     = var.log_configuration == null
-  container_definitions      = compact(concat(list(module.container.json_map_encoded)))
+  container_definitions      = [module.container.json_map_encoded]
   container_definitions_json = "[${join(",", local.container_definitions)}]"
   default_log_configuration_secrets = length(var.secrets) > 0 ? [
     for key in var.secrets :
@@ -132,73 +132,6 @@ data "aws_iam_policy_document" "execution_role" {
     principals {
       identifiers = ["ecs-tasks.amazonaws.com"]
       type        = "Service"
-    }
-  }
-}
-
-resource "aws_cloudwatch_event_rule" "scheduled_task" {
-  name                = "${module.label.id}-scheduled_task"
-  schedule_expression = var.schedule_expression
-  is_enabled          = true
-}
-
-resource "aws_cloudwatch_event_target" "scheduled_task" {
-  target_id = "${module.label.id}-target"
-  rule      = aws_cloudwatch_event_rule.scheduled_task.name
-  arn       = var.cluster_arn
-  role_arn  = aws_iam_role.scheduled_task_cloudwatch.arn
-
-  ecs_target {
-
-    launch_type         = "FARGATE"
-    task_count          = "1"
-    task_definition_arn = local.task_definition_arn_only
-    platform_version    = "1.4.0"
-
-    network_configuration {
-      subnets          = var.subnets
-      assign_public_ip = var.assign_public_ip
-      security_groups  = var.security_groups
-    }
-  }
-}
-
-resource "aws_iam_role" "scheduled_task_cloudwatch" {
-  name               = "${module.label.id}-st-cloudwatch-role"
-  assume_role_policy = data.aws_iam_policy_document.scheduled_task_cloudwatch.json
-}
-
-data "aws_iam_policy_document" "scheduled_task_cloudwatch" {
-  statement {
-    actions = ["sts:AssumeRole"]
-    effect  = "Allow"
-    principals {
-      identifiers = ["events.amazonaws.com"]
-      type        = "Service"
-    }
-  }
-}
-
-resource "aws_iam_role_policy" "scheduled_task_cloudwatch_policy" {
-  name   = "${module.label.id}-run-ecs-task-policy"
-  role   = aws_iam_role.scheduled_task_cloudwatch.id
-  policy = data.aws_iam_policy_document.scheduled_task_cloudwatch-m.json
-}
-
-data "aws_iam_policy_document" "scheduled_task_cloudwatch-m" {
-  statement {
-    actions   = ["ecs:RunTask"]
-    effect    = "Allow"
-    resources = ["*"]
-  }
-  statement {
-    actions   = ["iam:PassRole"]
-    effect    = "Allow"
-    resources = ["*"]
-    condition {
-      test     = "StringLike"
-      values   = ["ecs-tasks.amazonaws.com"]
-      variable = "iam:PassedToService"
     }
   }
 }
