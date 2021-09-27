@@ -12,7 +12,7 @@ check-formatting:
 validate:
   extends: .validate
   variables:
-    ENVIRONMENTS: dev prod
+    ENVIRONMENTS: examples/complete
 
 bump-tag:
   extends: .bump_minor_tag
