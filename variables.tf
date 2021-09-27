@@ -44,10 +44,6 @@ variable "security_groups" {
   type = list(string)
 }
 
-variable "schedule_expression" {
-  type = string
-}
-
 variable "log_configuration" {
   type = object({
     logDriver = string
