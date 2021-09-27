@@ -25,7 +25,7 @@ locals {
 }
 
 module "container" {
-  source           = "git::https://github.com/cloudposse/terraform-aws-ecs-container-definition?ref=tags/0.46.2"
+  source           = "git::https://github.com/cloudposse/terraform-aws-ecs-container-definition?ref=tags/0.58.1"
   container_name   = module.label.id
   container_image  = "${var.container_image}:${var.container_tag}"
   container_cpu    = var.container_cpu
