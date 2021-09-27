@@ -14,7 +14,6 @@ module "task" {
   name                = "test"
   project             = "test"
   region              = "test"
-  schedule_expression = "test"
   security_groups     = []
   subnets             = []
 }
