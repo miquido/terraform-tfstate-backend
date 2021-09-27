@@ -1,5 +1,5 @@
 output "task_definition_arn" {
-  value = aws_ecs_task_definition.ecs-cron.arn
+  value = local.task_definition_arn_only
 }
 
 output "service_role_arn" {

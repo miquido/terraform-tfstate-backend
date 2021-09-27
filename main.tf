@@ -7,7 +7,7 @@ module "label" {
 }
 
 locals {
-  task_definition_arn_only = replace(aws_ecs_task_definition.ecs-cron.arn, "/:\\d+$/", "")
+  task_definition_arn_only = replace(aws_ecs_task_definition.default.arn, "/:\\d+$/", "")
 }
 
 locals {
@@ -47,8 +47,8 @@ module "container" {
   environment = var.environment_variables
 }
 
-resource "aws_ecs_task_definition" "ecs-cron" {
-  family                   = "${module.label.id}-ecs"
+resource "aws_ecs_task_definition" "default" {
+  family                   = module.label.id
   network_mode             = "awsvpc"
   container_definitions    = local.container_definitions_json
   requires_compatibilities = ["FARGATE"]
@@ -75,7 +75,7 @@ data "aws_iam_policy_document" "service_role" {
 }
 
 resource "aws_iam_role_policy" "execution-policy" {
-  name = "${module.label.id}-execution-policy"
+  name = "${module.label.id}-default-execution-policy"
   role = aws_iam_role.execution_role.id
 
   policy = data.aws_iam_policy_document.execution-policy.json
