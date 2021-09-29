@@ -2,6 +2,10 @@ output "task_definition_arn" {
   value = local.task_definition_arn_only
 }
 
+output "container_name" {
+  value = module.label.id
+}
+
 output "service_role_arn" {
   value = aws_iam_role.service_role.arn
 }
