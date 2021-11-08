@@ -14,7 +14,7 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 module "this" {
-  source                        = "git::https://github.com/cloudposse/terraform-aws-tfstate-backend?ref=tags/0.37.1"
+  source                        = "git::https://github.com/cloudposse/terraform-aws-tfstate-backend?ref=tags/0.38.0"
   namespace                     = var.name
   stage                         = var.environment
   name                          = "terraform"
