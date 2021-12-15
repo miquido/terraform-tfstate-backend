@@ -1,5 +1,6 @@
-name: miquido-tfstate-backend
-bitbucket_repo: miquido/terraform-tfstate-backend
+name: terraform-tfstate-backend
+repos:
+  gitlab: miquido/terraform/terraform-tfstate-backend
 badges: []
 related: []
 description: |-
@@ -14,7 +15,7 @@ usage: |-
       terraform {}
 
       module "tfstate-backend" {
-          source      = "git::ssh://git@bitbucket.org/miquido/terraform-tfstate-backend.git?ref=1.0.2"
+          source      = "git::ssh://git@gitlab.com:miquido/terraform/terraform-tfstate-backend.git?ref=master"
           name        = "miquido"
           environment = "devops"
       }
