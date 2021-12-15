@@ -1,0 +1,16 @@
+name: miquido-terraform-ecs-task
+repos:
+  gitlab: miquido/terraform/terraform-ecs-task
+badges: []
+related: []
+# description: ""
+# usage: |-
+#   ```hcl
+#   module {
+#     source = "git::ssh://git@gitlab.com/miquido/terraform/terraform-.git?ref=master"
+#     ...
+#   }
+#   ```
+include:
+  - "docs/terraform.md"
+  - "docs/targets.md"
