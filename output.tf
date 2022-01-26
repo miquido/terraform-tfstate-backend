@@ -30,5 +30,5 @@ output "dynamodb_table_arn" {
 
 output "tf_backend_config" {
   description = "Rendered Terraform backend config file"
-  value       = data.template_file.terraform_backend_config.rendered
+  value       = local.templatefile
 }

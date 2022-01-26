@@ -3,6 +3,15 @@ locals {
   role_arn             = "arn:aws:iam::${local.role_account_id}:role/${var.role_name}"
   terraform_version    = "0.13.5"
   terraform_state_file = "terraform.tfstate"
+  templatefile = templatefile("${path.module}/templates/terraform.tf.tpl", {
+    region               = data.aws_region.current.name
+    encrypt              = true
+    bucket               = module.this.s3_bucket_id
+    dynamodb_table       = module.this.dynamodb_table_name
+    role_arn             = local.role_arn
+    terraform_version    = local.terraform_version
+    terraform_state_file = local.terraform_state_file
+  })
   terraform_backend_config_file = format(
     "%s/%s",
     var.terraform_backend_config_file_path,
@@ -37,22 +46,8 @@ module "this" {
   s3_bucket_name                = var.s3_bucket_name
 }
 
-data "template_file" "terraform_backend_config" {
-  template = file("${path.module}/templates/terraform.tf.tpl")
-
-  vars = {
-    region               = data.aws_region.current.name
-    encrypt              = true
-    bucket               = module.this.s3_bucket_id
-    dynamodb_table       = module.this.dynamodb_table_name
-    role_arn             = local.role_arn
-    terraform_version    = local.terraform_version
-    terraform_state_file = local.terraform_state_file
-  }
-}
-
 resource "local_file" "terraform_backend_config" {
   count    = var.terraform_backend_config_file_path != "" ? 1 : 0
-  content  = data.template_file.terraform_backend_config.rendered
+  content  = local.templatefile
   filename = local.terraform_backend_config_file
 }
