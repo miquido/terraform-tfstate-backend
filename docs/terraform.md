@@ -1,13 +1,16 @@
 <!-- markdownlint-disable -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.0 |
 
 ## Modules
 
@@ -61,5 +64,6 @@ No requirements.
 | <a name="output_container_name"></a> [container\_name](#output\_container\_name) | n/a |
 | <a name="output_execution_role_arn"></a> [execution\_role\_arn](#output\_execution\_role\_arn) | n/a |
 | <a name="output_service_role_arn"></a> [service\_role\_arn](#output\_service\_role\_arn) | n/a |
+| <a name="output_service_role_id"></a> [service\_role\_id](#output\_service\_role\_id) | n/a |
 | <a name="output_task_definition_arn"></a> [task\_definition\_arn](#output\_task\_definition\_arn) | n/a |
 <!-- markdownlint-restore -->
