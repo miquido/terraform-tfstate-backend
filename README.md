@@ -82,17 +82,15 @@ Available targets:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 2.29.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.0 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | >= 1.3 |
-| <a name="requirement_template"></a> [template](#requirement\_template) | >= 2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 2.29.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.0 |
 | <a name="provider_local"></a> [local](#provider\_local) | >= 1.3 |
-| <a name="provider_template"></a> [template](#provider\_template) | >= 2.0 |
 
 ## Modules
 
@@ -107,7 +105,6 @@ Available targets:
 | [local_file.terraform_backend_config](https://registry.terraform.io/providers/hashicorp/local/latest/docs/resources/file) | resource |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 | [aws_region.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/region) | data source |
-| [template_file.terraform_backend_config](https://registry.terraform.io/providers/hashicorp/template/latest/docs/data-sources/file) | data source |
 
 ## Inputs
 
@@ -157,7 +154,7 @@ Available targets:
 
 ## Copyright
 
-Copyright © 2017-2021 [Miquido](https://miquido.com)
+Copyright © 2017-2022 [Miquido](https://miquido.com)
 
 
 
