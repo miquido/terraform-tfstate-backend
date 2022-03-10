@@ -8,6 +8,7 @@ module "label" {
 
 locals {
   task_definition_arn_only = replace(aws_ecs_task_definition.default.arn, "/:\\d+$/", "")
+  family = module.label.id
 }
 
 locals {
@@ -48,7 +49,7 @@ module "container" {
 }
 
 resource "aws_ecs_task_definition" "default" {
-  family                   = module.label.id
+  family                   = local.family
   network_mode             = "awsvpc"
   container_definitions    = local.container_definitions_json
   requires_compatibilities = ["FARGATE"]
