@@ -96,7 +96,7 @@ Available targets:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_this"></a> [this](#module\_this) | git::https://github.com/axerinc/terraform-aws-tfstate-backend | refactor-s3-resource-v4 |
+| <a name="module_this"></a> [this](#module\_this) | git::https://github.com/kkmiquido/terraform-aws-tfstate-backend | refactor-s3-resource-v4 |
 
 ## Resources
 
