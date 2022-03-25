@@ -23,7 +23,7 @@ data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
 
 module "this" {
-  source                        = "git::https://github.com/cloudposse/terraform-aws-tfstate-backend?ref=0.38.1"
+  source                        = "git::https://github.com/axerinc/terraform-aws-tfstate-backend?ref=refactor-s3-resource-v4" #TODO: restore cloudposse when released
   namespace                     = var.name
   stage                         = var.environment
   name                          = "terraform"

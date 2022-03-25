@@ -82,21 +82,21 @@ Available targets:
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 3.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.7 |
 | <a name="requirement_local"></a> [local](#requirement\_local) | >= 1.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 3.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.7 |
 | <a name="provider_local"></a> [local](#provider\_local) | >= 1.3 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_this"></a> [this](#module\_this) | git::https://github.com/cloudposse/terraform-aws-tfstate-backend | 0.38.1 |
+| <a name="module_this"></a> [this](#module\_this) | git::https://github.com/axerinc/terraform-aws-tfstate-backend | refactor-s3-resource-v4 |
 
 ## Resources
 
