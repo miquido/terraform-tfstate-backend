@@ -1,7 +1,7 @@
 locals {
   role_account_id      = var.role_account_id == "" ? data.aws_caller_identity.current.account_id : var.role_account_id
   role_arn             = "arn:aws:iam::${local.role_account_id}:role/${var.role_name}"
-  terraform_version    = "0.13.5"
+  terraform_version    = var.terraform_minimum_version
   terraform_state_file = "terraform.tfstate"
   templatefile = templatefile("${path.module}/templates/terraform.tf.tpl", {
     region               = data.aws_region.current.name

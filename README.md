@@ -120,6 +120,7 @@ Available targets:
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply on repository | `map(string)` | `{}` | no |
 | <a name="input_terraform_backend_config_file_name"></a> [terraform\_backend\_config\_file\_name](#input\_terraform\_backend\_config\_file\_name) | Name of terraform backend config file | `string` | `"tfstate-backend.tf"` | no |
 | <a name="input_terraform_backend_config_file_path"></a> [terraform\_backend\_config\_file\_path](#input\_terraform\_backend\_config\_file\_path) | The path to terrafrom project directory. Won't create local file if variable value is empty. Recommended: `path.module` | `string` | `""` | no |
+| <a name="input_terraform_minimum_version"></a> [terraform\_minimum\_version](#input\_terraform\_minimum\_version) | Minimum version for terraform | `string` | `"0.13.5"` | no |
 | <a name="input_write_capacity"></a> [write\_capacity](#input\_write\_capacity) | DynamoDB write capacity units | `number` | `1` | no |
 
 ## Outputs
