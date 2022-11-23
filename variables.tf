@@ -1,4 +1,5 @@
 variable "environment" {
+  type        = string
   default     = ""
   description = "Environment name"
 }
@@ -27,11 +28,13 @@ variable "role_name" {
 }
 
 variable "read_capacity" {
+  type        = number
   default     = 1
   description = "DynamoDB read capacity units"
 }
 
 variable "write_capacity" {
+  type        = number
   default     = 1
   description = "DynamoDB write capacity units"
 }
@@ -49,6 +52,7 @@ variable "terraform_backend_config_file_path" {
 }
 
 variable "billing_mode" {
+  type        = string
   default     = "PAY_PER_REQUEST"
   description = "DynamoDB billing mode"
 }
