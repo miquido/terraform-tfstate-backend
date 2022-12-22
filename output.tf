@@ -2,6 +2,10 @@ output "task_definition_arn" {
   value = local.task_definition_arn_only
 }
 
+output "task_definition" {
+  value = local.family
+}
+
 output "container_name" {
   value = module.label.id
 }
