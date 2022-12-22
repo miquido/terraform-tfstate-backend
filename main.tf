@@ -8,7 +8,7 @@ module "label" {
 
 locals {
   task_definition_arn_only = replace(aws_ecs_task_definition.default.arn, "/:\\d+$/", "")
-  family = module.label.id
+  family                   = module.label.id
 }
 
 locals {
