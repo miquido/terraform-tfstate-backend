@@ -13,7 +13,7 @@ locals {
 
 locals {
   use_default_log_config     = var.log_configuration == null
-  container_definitions      = [module.container.json_map_encoded]
+  container_definitions      = concat(var.additional_container_definitions, [module.container.json_map_encoded])
   container_definitions_json = "[${join(",", local.container_definitions)}]"
   default_log_configuration_secrets = length(var.secrets) > 0 ? [
     for key in var.secrets :
@@ -53,8 +53,8 @@ resource "aws_ecs_task_definition" "default" {
   network_mode             = "awsvpc"
   container_definitions    = local.container_definitions_json
   requires_compatibilities = ["FARGATE"]
-  cpu                      = var.container_cpu
-  memory                   = var.container_memory
+  cpu                      = var.task_cpu
+  memory                   = var.task_memory
   task_role_arn            = aws_iam_role.service_role.arn
   execution_role_arn       = aws_iam_role.execution_role.arn
 }

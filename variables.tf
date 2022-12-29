@@ -66,10 +66,20 @@ variable "log_retention" {
 }
 
 variable "container_cpu" {
-  type = number
+  type    = number
+  default = 0
 }
 
 variable "container_memory" {
+  type    = number
+  default = null
+}
+
+variable "task_cpu" {
+  type = number
+}
+
+variable "task_memory" {
   type = number
 }
 
@@ -97,5 +107,10 @@ variable "secrets" {
 
   description = "The secrets to pass to the container. This is a list of maps"
 
+  default = []
+}
+
+variable "additional_container_definitions" {
+  type    = list(string)
   default = []
 }
