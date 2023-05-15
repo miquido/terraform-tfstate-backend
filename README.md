@@ -96,7 +96,7 @@ Available targets:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_this"></a> [this](#module\_this) | git::https://github.com/cloudposse/terraform-aws-tfstate-backend.git | 0.40.1 |
+| <a name="module_this"></a> [this](#module\_this) | cloudposse/tfstate-backend/aws | 0.40.1 |
 
 ## Resources
 
