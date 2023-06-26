@@ -37,7 +37,6 @@ module "this" {
   read_capacity                 = var.read_capacity
   write_capacity                = var.write_capacity
   billing_mode                  = var.billing_mode
-  enable_server_side_encryption = true
   enable_public_access_block    = true
   enable_point_in_time_recovery = false
   profile                       = ""
