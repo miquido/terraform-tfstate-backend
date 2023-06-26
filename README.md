@@ -96,7 +96,7 @@ Available targets:
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_this"></a> [this](#module\_this) | cloudposse/tfstate-backend/aws | 0.40.1 |
+| <a name="module_this"></a> [this](#module\_this) | cloudposse/tfstate-backend/aws | 1.1.1 |
 
 ## Resources
 
