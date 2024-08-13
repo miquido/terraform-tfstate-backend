@@ -24,7 +24,7 @@ data "aws_region" "current" {}
 
 module "this" {
   source                        = "cloudposse/tfstate-backend/aws"
-  version                       = "1.1.1"
+  version                       = "1.5.0"
   namespace                     = var.name
   stage                         = var.environment
   name                          = "terraform"
